@@ -21,38 +21,19 @@ export default function App() {
            
            //Set the icon based on which route it is (name of the tab)
            if (route.name === 'Home') {
-            if (focused) {
-              iconName = 'home'
-            }else {
-              iconName = 'home-outline'
-            }
+            iconName = focused ? 'home' : 'home-outline';
+            
            } else if (route.name === 'More') {
-             if (focused) {
-               iconName = 'list-circle-sharp'
-             }else {
-               iconName = 'list-circle-outline'
-             }
+            iconName = focused ? 'list-circle-sharp' : 'list-circle-outline';
 
            }else if (route.name === 'Shops') {
-             if (focused) {
-               iconName = 'md-cart-sharp'
-             }else {
-               iconName = 'md-cart-outline'
-             }
+            iconName = focused ? 'md-cart-sharp' : 'md-cart-outline';
             
            }else if (route.name === 'Tips') {
-             if (focused) {
-               iconName = 'bulb-sharp'
-             }else {
-               iconName = 'bulb-outline'
-             }
+            iconName = focused ? 'bulb-sharp' : 'bulb-outline';
 
            }else if (route.name === 'Fitness') {
-             if (focused) {
-               iconName = 'md-fitness-sharp'
-             }else {
-              iconName = 'md-fitness-outline'; 
-             }
+            iconName = focused ? 'md-fitness-sharp' : 'md-fitness-outline';
            }
 
            // You can return any component that you like here!
