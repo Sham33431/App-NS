@@ -7,7 +7,7 @@ import FitnessScreen from './screens/FitnessScreen';
 import TipsScreen from './screens/TipsScreen';
 import ShopScreen from './screens/ShopScreen';
 import MoreScreen from './screens/MoreScreen';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,19 +21,42 @@ export default function App() {
            
            //Set the icon based on which route it is (name of the tab)
            if (route.name === 'Home') {
-             iconName = 'home';
+            if (focused) {
+              iconName = 'home'
+            }else {
+              iconName = 'home-outline'
+            }
            } else if (route.name === 'More') {
-             iconName = 'list-ul';
+             if (focused) {
+               iconName = 'list-circle-sharp'
+             }else {
+               iconName = 'list-circle-outline'
+             }
+
            }else if (route.name === 'Shops') {
-             iconName = 'shopping-cart';
+             if (focused) {
+               iconName = 'md-cart-sharp'
+             }else {
+               iconName = 'md-cart-outline'
+             }
+            
            }else if (route.name === 'Tips') {
-             iconName = 'lightbulb';
+             if (focused) {
+               iconName = 'bulb-sharp'
+             }else {
+               iconName = 'bulb-outline'
+             }
+
            }else if (route.name === 'Fitness') {
-             iconName = 'running'; 
+             if (focused) {
+               iconName = 'md-fitness-sharp'
+             }else {
+              iconName = 'md-fitness-outline'; 
+             }
            }
 
            // You can return any component that you like here!
-           return <FontAwesome5 name={iconName} size={size} color={color} />;
+           return <Ionicons name={iconName} size={size} color={color} />;
          },
         tabBarActiveTintColor: "tomato",
         tabBarInactiveTintColor: "gray",
