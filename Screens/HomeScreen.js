@@ -1,6 +1,5 @@
 import React from "react";
 import {Text, View } from "react-native"
-import { FontAwesome } from "@expo/vector-icons"
 
 export default function HomeScreen() {
     return (
