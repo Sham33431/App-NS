@@ -9,6 +9,7 @@ import ShopScreen from './screens/ShopScreen';
 import MoreScreen from './screens/MoreScreen';
 import { Ionicons } from '@expo/vector-icons';
 
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -52,3 +53,10 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+<NavigationContainer>
+  <Tab.Navigator>
+    <Tab.Screen name="Home" component={HomeScreen}
+     options={{headerShown: false}}/>
+  </Tab.Navigator>
+</NavigationContainer>
