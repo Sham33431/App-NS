@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import CheckIcon from '@mui/icons-material/Check';
 import ToggleButton from '@mui/material/ToggleButton';
 import { TextInput } from "react-native-web";
+import {openDatabase} from 'react-native-sqlite-storage'
 
 
 
@@ -18,12 +19,8 @@ export default function HomeScreen({}) {
     setValue(event.target.value);
    };
 
-   SQLite.enablePromise(true);
-
-   const db = SQLite.openDatabase("Name.db");
-
-
-
+   
+   
   /*pretty sure that the name will not save*/
   return(
     <View style= {{ flex: 1, alignItems: "center", justifyContent: "flex-start", marginTop: 40}}>
