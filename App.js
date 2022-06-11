@@ -17,8 +17,9 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
        screenOptions={({ route }) => ({
-         tabBarIcon: ({ focused, color, size }) => {
+        headerShown: false, tabBarIcon: ({ focused, color, size }) => {
            let iconName;
+           
            
            //Set the icon based on which route it is (name of the tab)
            if (route.name === 'Home') {
@@ -54,9 +55,3 @@ export default function App() {
   );
 }
 
-<NavigationContainer>
-  <Tab.Navigator>
-    <Tab.Screen name="Home" component={HomeScreen}
-     options={{headerShown: false}}/>
-  </Tab.Navigator>
-</NavigationContainer>
