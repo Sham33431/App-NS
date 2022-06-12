@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './Screens/HomeScreen';
 import FitnessScreen from './screens/FitnessScreen';
 import TipsScreen from './screens/TipsScreen';
 import ShopScreen from './screens/ShopScreen';
