@@ -1,13 +1,13 @@
 import React, {useState} from "react"
 import { Text, View} from "react-native"
-import { TextInput} from "react-native-paper";
+import { TextInput } from "react-native-paper";
 import Icon from 'react-native-vector-icons/AntDesign';
-import "./styles.css"
+import "./styles.css" 
 
 export default function HomeScreen({}) {
 
   const [test, setTest] = React.useState("");
-  const [TextInput1, setValue] = React.useState("");
+  const [InputText, setValue] = React.useState("");
   const [imgPreview, setImgPreview] = useState(null);
   const [error, setError] = useState(false)
   
@@ -15,7 +15,7 @@ export default function HomeScreen({}) {
     setValue(event.target.value);
    };
 
-   let Info= TextInput1
+   let Info= InputText
 
    const handleImageChange = (e) => {
      const selected = e.target.files[0];
@@ -24,7 +24,7 @@ export default function HomeScreen({}) {
       let reader= new FileReader();
       reader.onloadend = () => {
         setImgPreview(reader.result)
-        setimgPreview(selected);
+        setImgPreview(selected);
       }
       reader.readAsDataURL (selected);
 
@@ -45,7 +45,7 @@ export default function HomeScreen({}) {
     <TextInput
         id="outlined-name"
         label="Name"
-        value={TextInput1}
+        value={InputText}
         onChange={handleChange}
       
       /> 
@@ -58,7 +58,7 @@ export default function HomeScreen({}) {
     </Icon.Button>
       </View>
 
-      <div className = "APP"/>
+      <div className = "UploadandPreview"/>
         <div className= "Container">
           {error && <p className= "errorMsg">File not supported</p>}
           <div 
