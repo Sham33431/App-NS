@@ -10,6 +10,8 @@ import MoreScreen from './Screens/MoreScreen';
 import { Ionicons } from '@expo/vector-icons';
 
 
+
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {

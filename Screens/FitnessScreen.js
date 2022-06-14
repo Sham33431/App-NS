@@ -1,12 +1,237 @@
 import React, { Component, useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Switch, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Switch,
+  ScrollView,
+} from 'react-native';
 
 function FitnessScreen(props) {
-  const [y, sety] = useState('y');
-  const [x, setx] = useState('x');
-  const [z, setz] = useState('z');
+  const [y, setY] = useState(0);
+  const [x, setX] = useState(0);
+  const [z, setZ] = useState(0);
   const [isEnabled, setIsEnabled] = React.useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
+  function onChangeY(value) {
+    let totalScore = parseInt(value);
+    if (totalScore < 15) {
+      setY(1);
+    } else if (totalScore === 16) {
+      setY(2);
+    } else if (totalScore === 17) {
+      setY(4);
+    } else if (totalScore === 18) {
+      setY(6);
+    } else if (totalScore === 19) {
+      setY(8);
+    } else if (totalScore === 20) {
+      setY(9);
+    } else if (totalScore === 21) {
+      setY(10);
+    } else if (totalScore === 22) {
+      setY(11);
+    } else if (totalScore === 23) {
+      setY(12);
+    } else if (totalScore === 24) {
+      setY(13);
+    } else if (totalScore === 25) {
+      setY(14);
+    } else if (26 <= totalScore && totalScore < 28) {
+      setY(15);
+    } else if (28 <= totalScore && totalScore < 31) {
+      setY(16);
+    } else if (31 <= totalScore && totalScore < 34) {
+      setY(17);
+    } else if (34 <= totalScore && totalScore < 37) {
+      setY(18);
+    } else if (37 <= totalScore && totalScore < 40) {
+      setY(19);
+    } else if (40 <= totalScore && totalScore < 44) {
+      setY(20);
+    } else if (44 <= totalScore && totalScore < 48) {
+      setY(21);
+    } else if (48 <= totalScore && totalScore < 52) {
+      setY(22);
+    } else if (52 <= totalScore && totalScore < 56) {
+      setY(23);
+    } else if (56 <= totalScore && totalScore < 60) {
+      setY(24);
+    } else if (totalScore >= 60) {
+      setY(25);
+    } else {
+      setY(0);
+    }
+  }
+  function onChangeX(value) {
+    let totalScore = parseInt(value);
+
+    if (totalScore <= 15) {
+      setX(1);
+    } else if (totalScore === 16) {
+      setX(2);
+    } else if (totalScore === 17) {
+      setX(3);
+    } else if (totalScore === 18) {
+      setX(4);
+    } else if (totalScore === 19) {
+      setX(5);
+    } else if (20 <= totalScore && totalScore < 22) {
+      setX(6);
+    } else if (22 <= totalScore && totalScore < 24) {
+      setX(7);
+    } else if (24 <= totalScore && totalScore < 25) {
+      setX(8);
+    } else if (totalScore === 25) {
+      setX(9);
+    } else if (totalScore === 26) {
+      setX(10);
+    } else if (totalScore === 27) {
+      setX(11);
+    } else if (totalScore === 28) {
+      setX(12);
+    } else if (29 <= totalScore && totalScore < 30) {
+      setX(13);
+    } else if (30 <= totalScore && totalScore < 31) {
+      setX(14);
+    } else if (31 <= totalScore && totalScore < 33) {
+      setX(15);
+    } else if (totalScore === 34) {
+      setX(16);
+    } else if (totalScore === 35) {
+      setX(17);
+    } else if (36 <= totalScore && totalScore < 38) {
+      setX(18);
+    } else if (38 <= totalScore && totalScore < 40) {
+      setX(19);
+    } else if (40 <= totalScore && totalScore < 44) {
+      setX(20);
+    } else if (44 <= totalScore && totalScore < 48) {
+      setX(21);
+    } else if (48 <= totalScore && totalScore < 52) {
+      setX(22);
+    } else if (52 <= totalScore && totalScore < 56) {
+      setX(23);
+    } else if (56 <= totalScore && totalScore < 60) {
+      setX(24);
+    } else if (totalScore >= 60) {
+      setX(25);
+    } else {
+      setX(0);
+    }
+  }
+  function compute() {
+    let val = x + y + z;
+    let ret;
+    console.log(val);
+    if (val < 51) {
+      return 'FAILED';
+    } else if (val >= 51 && val < 75) {
+      return 'PASS with incentive';
+    } else if (val >= 75 && val < 85) {
+      return 'SILVER';
+    } else if (val >= 85 && val < 90) {
+      return 'GOLD';
+    } else if (val >= 90) {
+      return 'GOLD Commando';
+    } else {
+      return 'FAILED';
+    }
+  }
+  function onChangeZ(value) {
+    let totalScore = parseFloat(value);
+    if (totalScore < 8.3) {
+      setZ(50);
+    } else if (8.3 <= totalScore && totalScore < 8.4) {
+      setZ(49);
+    } else if (8.4 <= totalScore && totalScore < 8.5) {
+      setZ(48);
+    } else if (8.5 <= totalScore && totalScore < 9.0) {
+      setZ(47);
+    } else if (9.0 <= totalScore && totalScore < 9.1) {
+      setZ(46);
+    } else if (9.1 <= totalScore && totalScore < 9.2) {
+      setZ(45);
+    } else if (9.2 <= totalScore && totalScore < 9.3) {
+      setZ(44);
+    } else if (9.3 <= totalScore && totalScore < 9.4) {
+      setZ(43);
+    } else if (9.4 <= totalScore && totalScore < 9.5) {
+      setZ(42);
+    } else if (9.5 <= totalScore && totalScore < 10.0) {
+      setZ(41);
+    } else if (10.0 <= totalScore && totalScore < 10.1) {
+      setZ(40);
+    } else if (10.2 <= totalScore && totalScore < 10.3) {
+      setZ(39);
+    } else if (10.3 <= totalScore && totalScore < 10.4) {
+      setZ(38);
+    } else if (10.4 <= totalScore && totalScore < 11.0) {
+      setZ(37);
+    } else if (11.0 <= totalScore && totalScore < 11.2) {
+      setZ(36);
+    } else if (11.2 <= totalScore && totalScore < 11.4) {
+      setZ(35);
+    } else if (11.4 <= totalScore && totalScore < 11.5) {
+      setZ(34);
+    } else if (11.4 <= totalScore && totalScore < 12.0) {
+      setZ(33);
+    } else if (12.0 <= totalScore && totalScore < 12.2) {
+      setZ(32);
+    } else if (12.2 <= totalScore && totalScore < 12.3) {
+      setZ(31);
+    } else if (12.3 <= totalScore && totalScore < 12.4) {
+      setZ(30);
+    } else if (12.4 <= totalScore && totalScore < 12.5) {
+      setZ(29);
+    } else if (12.5 <= totalScore && totalScore < 13.0) {
+      setZ(28);
+    } else if (13.0 <= totalScore && totalScore < 13.1) {
+      setZ(27);
+    } else if (13.1 <= totalScore && totalScore < 13.2) {
+      setZ(26);
+    } else if (13.2 <= totalScore && totalScore < 13.3) {
+      setZ(25);
+    } else if (13.3 <= totalScore && totalScore < 13.4) {
+      setZ(24);
+    } else if (13.4 <= totalScore && totalScore < 13.5) {
+      setZ(23);
+    } else if (13.5 <= totalScore && totalScore < 14.0) {
+      setZ(22);
+    } else if (14.0 <= totalScore && totalScore < 14.1) {
+      setZ(21);
+    } else if (14.1 <= totalScore && totalScore < 14.2) {
+      setZ(20);
+    } else if (14.2 <= totalScore && totalScore < 14.3) {
+      setZ(19);
+    } else if (14.3 <= totalScore && totalScore < 14.4) {
+      setZ(18);
+    } else if (14.4 <= totalScore && totalScore < 14.5) {
+      setZ(16);
+    } else if (14.5 <= totalScore && totalScore < 15.0) {
+      setZ(14);
+    } else if (15.0 <= totalScore && totalScore < 15.1) {
+      setZ(12);
+    } else if (15.1 <= totalScore && totalScore < 15.2) {
+      setZ(10);
+    } else if (15.2 <= totalScore && totalScore < 15.3) {
+      setZ(8);
+    } else if (15.3 <= totalScore && totalScore < 15.4) {
+      setZ(6);
+    } else if (15.4 <= totalScore && totalScore < 15.5) {
+      setZ(4);
+    } else if (15.5 <= totalScore && totalScore < 16.0) {
+      setZ(2);
+    } else if (16 <= totalScore) {
+      setZ(0);
+    } else {
+      setZ(0);
+    }
+  }
+
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -17,9 +242,9 @@ function FitnessScreen(props) {
           <View style={styles.rect7}>
             <TextInput
               placeholder="e.g 40"
+              onChangeText={(value) => onChangeY(value)}
               keyboardType="numeric"
-              style={styles.textInput}
-              onChangeText={(value) => sety(value)}></TextInput>
+              style={styles.textInput}></TextInput>
           </View>
         </View>
         <View style={styles.rect1Row}>
@@ -29,21 +254,24 @@ function FitnessScreen(props) {
           <View style={styles.rect4}>
             <TextInput
               placeholder="e.g 46"
+              onChangeText={(value) => onChangeX(value)}
               keyboardType="numeric"
-              style={styles.textInput1}
-              onChangeText={(value) => setx(value)}></TextInput>
+              style={styles.textInput1}></TextInput>
           </View>
         </View>
         <View style={styles.rect2Row}>
           <View style={styles.rect2}>
-            <Text style={styles.numberOfPushUp2}>2.4km run</Text>
+            <View style={styles.numberOfPushUp2Stack}>
+              <Text style={styles.numberOfPushUp2}>2.4km run</Text>
+              <Text style={styles.text5}></Text>
+            </View>
           </View>
           <View style={styles.rect9}>
             <TextInput
               placeholder="e.g 10.30"
+              onChangeText={(value) => onChangeZ(value)}
               keyboardType="numeric"
-              style={styles.textInput4}
-              onChangeText={(value) => setz(value)}></TextInput>
+              style={styles.textInput4}></TextInput>
           </View>
         </View>
         <View style={styles.button2Row}>
@@ -56,7 +284,8 @@ function FitnessScreen(props) {
         </View>
         <View style={styles.age7Row}>
           <Text style={styles.age7}>age:</Text>
-          <View style={styles.rect6}>
+          <View style={styles.rect6Stack}>
+            <View style={styles.rect6}></View>
             <TextInput
               placeholder="e.g 18"
               keyboardType="numeric"
@@ -71,13 +300,12 @@ function FitnessScreen(props) {
             thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleSwitch}
-            value={isEnabled}
-          />
+            value={isEnabled}></Switch>
         </View>
         <View style={styles.rect8}>
           <View style={styles.pass59Row}>
-            <Text style={styles.pass59}>PASS :</Text>
-            <Text style={styles.loremIpsum}>{y + x + z}</Text>
+            <Text style={styles.pass59}>{compute()} :</Text>
+            <Text style={styles.loremIpsum}>{x + y + z}</Text>
           </View>
         </View>
       </View>
@@ -152,7 +380,7 @@ const styles = StyleSheet.create({
     width: 68,
     fontSize: 20,
     marginTop: 17,
-    marginLeft: 13,
+    marginLeft: 11,
   },
   rect1Row: {
     height: 105,
@@ -167,11 +395,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#E6E6E6',
   },
   numberOfPushUp2: {
+    top: 0,
+    left: 0,
+    position: 'absolute',
     fontFamily: 'roboto-regular',
     color: '#121212',
     height: 71,
     width: 179,
     fontSize: 25,
+  },
+  text5: {
+    top: 39,
+    left: 145,
+    position: 'absolute',
+    fontFamily: 'roboto-regular',
+    color: '#121212',
+  },
+  numberOfPushUp2Stack: {
+    width: 179,
+    height: 71,
     marginTop: 17,
     marginLeft: 14,
   },
@@ -184,11 +426,11 @@ const styles = StyleSheet.create({
   textInput4: {
     fontFamily: 'roboto-regular',
     color: '#121212',
-    height: 79,
-    width: 70,
+    height: 71,
+    width: 68,
     fontSize: 20,
-    marginTop: 13,
-    marginLeft: 12,
+    marginTop: 18,
+    marginLeft: 11,
   },
   rect2Row: {
     height: 105,
@@ -242,18 +484,27 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   rect6: {
+    top: 0,
+    left: 1,
     width: 56,
     height: 32,
+    position: 'absolute',
     backgroundColor: '#E6E6E6',
-    marginLeft: 36,
   },
   textInput3: {
+    top: 4,
+    left: 0,
+    position: 'absolute',
     fontFamily: 'roboto-regular',
     color: '#121212',
     height: 28,
     width: 56,
     fontSize: 20,
-    marginTop: 4,
+  },
+  rect6Stack: {
+    width: 57,
+    height: 32,
+    marginLeft: 35,
   },
   age7Row: {
     height: 32,
@@ -267,7 +518,6 @@ const styles = StyleSheet.create({
     color: '#121212',
     fontSize: 20,
   },
-
   commandoNavyRow: {
     height: 24,
     flexDirection: 'row',
@@ -288,7 +538,8 @@ const styles = StyleSheet.create({
     color: '#121212',
     height: 83,
     width: 193,
-    fontSize: 60,
+    fontSize: 30,
+    marginTop: 25,
   },
   loremIpsum: {
     fontFamily: 'roboto-regular',
@@ -307,288 +558,4 @@ const styles = StyleSheet.create({
   },
 });
 
-{
-  var x = 0;
-}
-{
-  var y = 0;
-}
-{
-  var z = 0;
-}
-
 export default FitnessScreen;
-{
-  let textInput;
-  if (1 < textInput < 15) {
-    y = 1;
-  } 
-  else if (textInput === 16) {
-    y = 2;
-  } 
-  else if (textInput === 17) {
-    y = 4;
-  } 
-  else if (textInput === 18) {
-    y = 6;
-  } 
-  else if (textInput === 19) {
-    y = 8;
-  } 
-  else if (textInput === 20) {
-    y = 9;
-  } 
-  else if (textInput === 21) {
-    y = 10;
-  } 
-  else if (textInput === 22) {
-    y = 11;
-  } 
-  else if (textInput === 23) {
-    y = 12;
-  } 
-  else if (textInput === 24) {
-    y = 13;
-  } 
-  else if (textInput === 25) {
-    y = 14;
-  }  
-  else if (textInput === 26) {
-    y = 15;
-  } 
-  else if (textInput === 28) {
-    y = 16;
-  } 
-  else if (textInput === 31) {
-    y = 17;
-  } 
-  else if (textInput === 34) {
-    y = 18;
-  } 
-  else if (textInput === 37) {
-    y = 19;
-  } 
-  else if (textInput === 40) {
-    y = 20;
-  } 
-  else if (textInput === 44) {
-    y = 21;
-  } 
-  else if (textInput === 48) {
-    y = 22;
-  } 
-  else if (textInput === 52) {
-    y = 23;
-  } 
-  else if (textInput === 56) {
-    y = 24;
-  } 
-  else if (textInput === 60) {
-    y = 25;
-  }
-
-  let textInput1;
-  if (0 < textInput1 <= 15) {
-    x = 1;
-  } 
-  else if (textInput1 === 16) {
-    x = 2;
-  } 
-  else if (textInput1 === 17) {
-    x = 3;
-  } 
-  else if (textInput1 === 18) {
-    x = 4;
-  } 
-  else if (textInput1 === 19) {
-    x = 5;
-  } 
-  else if (textInput1 === 20) {
-    x = 6;
-  } 
-  else if (textInput1 === 22) {
-    x = 7;
-  } 
-  else if (textInput1 === 24) {
-    x = 8;
-  } 
-  else if (textInput1 === 25) {
-    x = 9;
-  } 
-  else if (textInput1 === 26) {
-    x = 10;
-  } 
-  else if (textInput1 === 27) {
-    x = 11;
-  } 
-  else if (textInput1 === 28) {
-    x = 12;
-  } 
-  else if (textInput1 === 29) {
-    x = 13;
-  } 
-  else if (textInput1 === 31) {
-    x = 14;
-  } 
-  else if (textInput1 === 33) {
-    x = 15;
-  } 
-  else if (textInput1 === 34) {
-    x = 16;
-  } 
-  else if (textInput1 === 35) {
-    x = 17;
-  } 
-  else if (textInput1 === 36) {
-    x = 18;
-  } 
-  else if (textInput1 === 38) {
-    x = 19;
-  } 
-  else if (textInput1 === 40) {
-    x = 20;
-  } 
-  else if (textInput1 === 44) {
-    x = 21;
-  } 
-  else if (textInput1 === 48) {
-    x = 22;
-  } 
-  else if (textInput1 === 52) {
-    x = 23;
-  } 
-  else if (textInput1 === 56) {
-    x = 24;
-  } 
-  else if (textInput1 === 60) {
-    x = 25;
-  }
-
-  let textInput4;
-  if (textInput4 <= 8.3) {
-    z = 50;
-  } 
-  else if (8.3 <= textInput4 < 8.4) {
-    z = 49;
-  } 
-  else if (8.4 <= textInput4 < 8.5) {
-    z = 48;
-  } 
-  else if (8.5 <= textInput4 < 9.0) {
-    z = 47;
-  } 
-  else if (9.0 <= textInput4 < 9.1) {
-    z = 46;
-  } 
-  else if (9.1 <= textInput4 < 9.2) {
-    z = 45;
-  } 
-  else if (9.2 <= textInput4 < 9.3) {
-    z = 44;
-  } 
-  else if (9.3 <= textInput4 < 9.4) {
-    z = 43;
-  } 
-  else if (9.4 <= textInput4 < 9.5) {
-    z = 42;
-  } 
-  else if (9.5 <= textInput4 < 10.0) {
-    z = 41;
-  } 
-  else if (10.0 <= textInput4 < 10.1) {
-    z = 40;
-  } 
-  else if (10.1 <= textInput4 < 10.2) {
-    z = 39;
-  } 
-  else if (10.2 <= textInput4 < 10.4) {
-    z = 38;
-  } 
-  else if (10.4 <= textInput4 < 11.0) {
-    z = 37;
-  } 
-  else if (11.0 <= textInput4 < 11.2) {
-    z = 36;
-  } 
-  else if (11.2 <= textInput4 < 11.4) {
-    z = 35;
-  } 
-  else if (11.4 <= textInput4 < 11.5) {
-    z = 34;
-  } 
-  else if (11.5 <= textInput4 < 12.0) {
-    z = 33;
-  } 
-  else if (12.1 <= textInput4 < 12.2) {
-    z = 32;
-  } 
-  else if (12.2 <= textInput4 < 12.3) {
-    z = 31;
-  } 
-  else if (12.3 <= textInput4 < 12.4) {
-    z = 30;
-  } 
-  else if (12.4 <= textInput4 < 12.5) {
-    z = 29;
-  } 
-  else if (12.5 <= textInput4 < 13.0) {
-    z = 28;
-  } 
-  else if (13.0 <= textInput4 < 13.1) {
-    z = 27;
-  } 
-  else if (13.1 <= textInput4 < 13.2) {
-    z = 26;
-  } 
-  else if (13.2 <= textInput4 < 13.3) {
-    z = 25;
-  } 
-  else if (13.3 <= textInput4 < 13.4) {
-    z = 24;
-  } 
-  else if (13.4 <= textInput4 < 13.5) {
-    z = 23;
-  } 
-  else if (13.5 <= textInput4 < 14.0) {
-    z = 22;
-  } 
-  else if (14.0 <= textInput4 < 14.1) {
-    z = 21;
-  } 
-  else if (14.1 <= textInput4 < 14.2) {
-    z = 20;
-  } 
-  else if (14.2 <= textInput4 < 14.3) {
-    z = 19;
-  } 
-  else if (14.3 <= textInput4 < 14.4) {
-    z = 18;
-  } 
-  else if (14.4 <= textInput4 < 14.5) {
-    z = 16;
-  } 
-  else if (14.5 <= textInput4 < 15.0) {
-    z = 14;
-  } 
-  else if (15.0 <= textInput4 < 15.1) {
-    z = 12;
-  } 
-  else if (15.1 <= textInput4 < 15.2) {
-    z = 10;
-  } 
-  else if (15.2 <= textInput4 < 15.3) {
-    z = 8;
-  } 
-  else if (15.3 <= textInput4 < 15.4) {
-    z = 6;
-  } 
-  else if (15.4 <= textInput4 < 15.5) {
-    z = 4;
-  } 
-  else if (15.5 <= textInput4 < 16.0) {
-    z = 2;
-  } 
-  else if (textInput4 > 16.0) {
-    z = 0;
-  }
-}
