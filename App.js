@@ -1,15 +1,34 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './Screens/HomeScreen';
 import FitnessScreen from './Screens/FitnessScreen';
 import TipsScreen from './Screens/TipsScreen';
 import ShopScreen from './Screens/ShopScreen';
 import MoreScreen from './Screens/MoreScreen';
 import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
 
 
+const Stack = createNativeStackNavigator();
+
+const MyStack = () => {
+  return (
+      <Stack.Navigator >
+        <Stack.Screen name="Tips" component={TipsScreen} />
+        <Stack.Screen name="Deals" component={DealsScreen} />
+        <Stack.Screen name="Support" component={SupportScreen} />
+        <Stack.Screen name="KeepingFit" component={KeepingFitScreen} options={{ title:"Keeping Fit" }}/>
+        <Stack.Screen name="FeelingMuscleSoreness" component={FeelingMuscleSorenessScreen} options={{ title:"Muscle Soreness" }} />
+        <Stack.Screen name="FeelingLost" component={FeelingLostScreen} options={{ title:"Feeling Lost" }}/>
+        <Stack.Screen name="FeelingOverwhelmed" component={FeelingOverwhelmedScreen} options={{ title:"Feeling Overwhelmed" }}/>
+        <Stack.Screen name="FeelingDown" component={FeelingDownScreen} options={{ title:"Feeling Down" }}/>
+        <Stack.Screen name="TalkToSomeone" component={TalkToSomeoneScreen} options={{ title:"Talk To Someone" }}/>
+      </Stack.Navigator>
+  );
+};
 
 
 const Tab = createBottomTabNavigator();
@@ -53,6 +72,7 @@ export default function App() {
         <Tab.Screen name="Fitness" component={FitnessScreen} />
         <Tab.Screen name="More" component={MoreScreen} /> 
       </Tab.Navigator>
+      <MyStack />
     </NavigationContainer>
   );
 }
