@@ -37,9 +37,11 @@ export default function HomeScreen({}) {
                 Confirm 
               </Text>
         </Icon.Button>
+        <Image source={require('../assets/ArmyCard.jpg')}/>
         <SafeAreaView style={styles.container}>
       <CarouselCards />
     </SafeAreaView>
+    <Image source={require('../assets/InspirationalQuote.png')}/>
       </View>
       
     </View>
