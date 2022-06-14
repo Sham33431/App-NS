@@ -8,6 +8,7 @@ import {
   Switch,
   ScrollView,
 } from 'react-native';
+import { RadioButton } from "react-native-paper";
 
 function FitnessScreen(props) {
   const [y, setY] = useState(0);
@@ -15,6 +16,7 @@ function FitnessScreen(props) {
   const [z, setZ] = useState(0);
   const [isEnabled, setIsEnabled] = React.useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const [checked, setChecked] = React.useState('');
 
   function onChangeY(value) {
     let totalScore = parseInt(value);
@@ -231,7 +233,7 @@ function FitnessScreen(props) {
       setZ(0);
     }
   }
-
+  
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -275,12 +277,32 @@ function FitnessScreen(props) {
           </View>
         </View>
         <View style={styles.button2Row}>
-          <TouchableOpacity style={styles.button2}></TouchableOpacity>
-          <Text style={styles.male}>Male</Text>
-          <TouchableOpacity
-            onPress={() => props.navigation.goBack()}
-            style={styles.button1}></TouchableOpacity>
-          <Text style={styles.female}>Female</Text>
+
+          <View>
+            <RadioButton
+              value="male"
+              status={ checked === 'male' ? 'checked' : 'unchecked' }
+              onPress={() => setChecked('male')}
+            />
+          </View>
+          <TouchableOpacity 
+              onPress={() => setChecked('male')}
+          >
+            <Text style={styles.male}>Male</Text>
+          </TouchableOpacity>
+          <View>
+            <RadioButton
+              value="female"
+              status={ checked === 'female' ? 'checked' : 'unchecked' }
+              onPress={() => setChecked('female')}
+            />
+          </View>
+          <TouchableOpacity 
+              onPress={() => setChecked('female')}
+          >
+            <Text style={styles.female}>Female</Text>
+          </TouchableOpacity>
+          
         </View>
         <View style={styles.age7Row}>
           <Text style={styles.age7}>age:</Text>
@@ -395,9 +417,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#E6E6E6',
   },
   numberOfPushUp2: {
-    top: 0,
-    left: 0,
-    position: 'absolute',
     fontFamily: 'roboto-regular',
     color: '#121212',
     height: 71,
@@ -405,9 +424,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   text5: {
-    top: 39,
-    left: 145,
-    position: 'absolute',
     fontFamily: 'roboto-regular',
     color: '#121212',
   },
@@ -471,7 +487,7 @@ const styles = StyleSheet.create({
     marginLeft: 6,
   },
   button2Row: {
-    height: 24,
+    height: 34,
     flexDirection: 'row',
     marginTop: 29,
     marginLeft: 72,

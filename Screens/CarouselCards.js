@@ -1,8 +1,8 @@
 import React from 'react'
 import { View } from "react-native"
 import Carousel, { Pagination } from 'react-native-snap-carousel'
-import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from '../Screens/Carousel/CarouselCardItem'
-import data from '../Screens/Carousel/data'
+import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from '../Screens/CarouselCardItem'
+import data from './data'
 
 
 const CarouselCards = () => {
