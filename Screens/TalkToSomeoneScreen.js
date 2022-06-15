@@ -19,7 +19,7 @@ function TalkToSomeoneScreen({navigation}) {
         <Text style={{ fontSize: 18 }}>
           We all need help sometimes. Many of us serve faithfully on someone else’s support team. We are the first person on the call list because people know that they can count us to be there during their time of need. {'\n'}{'\n'}Yes, we know how to give our help and support to others, but many of us have a problem being on the receiving end of help and support. We don’t ask for help or accept help from others, even from the people that we know love and care about us. Here are some people you can turn to when you need help.{'\n'}
         </Text>
-        <Text style={{ fontSize: 20 }}>{'\n'}Suportive Friends</Text>
+        <Text style={{ fontSize: 20 }}>{'\n'}Supportive Friends</Text>
         <Text style={{ fontSize: 18 }}>
           Usually, the most supportive friends are those that start in the casual friend category, and over time grows and deepens. A supportive friend is someone who understands who you are and what you need. Even in your worst of days, a supportive friend will be there for you.  {'\n'} {'\n'}
         </Text>
